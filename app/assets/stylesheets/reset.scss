@@ -1,5 +1,5 @@
 body {
-  background-color: white;
+  background-color: $white;
   color: #333;
   margin: 0;
 }
@@ -20,7 +20,7 @@ a {
   color: black;
 
   &:hover {
-    color: lighten(black, 20%);
+    color: lighten($black, 20%);
     text-decoration: none;
   }
 
@@ -39,8 +39,21 @@ div.actions {
   margin-bottom: 10px;
 }
 
-#notice {
-  color: green;
+.message {
+  &:not(:empty) {
+    padding: 5px;
+    border: 1px solid;
+  }
+
+  &--notice {
+    color: $green;
+    background-color: lighten($green, 50%);
+  }
+
+  &--alert {
+    color: $red;
+    background-color: lighten($red, 50%);
+  }
 }
 
 label {

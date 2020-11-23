@@ -1,23 +1,17 @@
-p#notice
-  = notice
-h1
-  | Tasklists
-table
-  thead
-    tr
-      th
-        | Title
-      th[colspan="3"]
-  tbody
-    - @tasklists.each do |tasklist|
-      tr
-        td
-          = tasklist.title
-        td
-          = link_to 'Show', tasklist
-        td
-          = link_to 'Edit', edit_tasklist_path(tasklist)
-        td
-          = link_to 'Destroy', tasklist, method: :delete, data: { confirm: 'Are you sure?' }
-br
-= link_to 'New Tasklist', new_tasklist_path
+.message.message--notice = notice
+
+h1 Tasklists
+
+ul.tasklists-list
+  - @tasklists.each do |tasklist|
+    li.tasklists-list__item
+      .taslists-list__header
+        = link_to tasklist.title, tasklist
+      .tasklists-list__comments
+      .tasklists-list__icons
+        = link_to edit_tasklist_path(tasklist), class: 'tasklists-list__icon' do
+          = image_tag 'edit.svg'
+        = link_to tasklist, method: :delete, data: { confirm: 'Are you sure?' }, class: 'tasklists-list__icon' do
+          = image_tag 'destroy.svg'
+
+= link_to 'New Tasklist', new_tasklist_path, class: 'button'
