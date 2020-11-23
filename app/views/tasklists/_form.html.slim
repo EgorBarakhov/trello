@@ -1,0 +1,15 @@
+= form_with(model: tasklist, local: true) do |form|
+  - if tasklist.errors.any?
+    #error_explanation
+      h2
+        = pluralize(tasklist.errors.count, "error")
+        |  prohibited this tasklist from being saved:
+      ul
+        - tasklist.errors.full_messages.each do |message|
+          li
+            = message
+  .field
+    = form.label :title
+    = form.text_field :title
+  .actions
+    = form.submit

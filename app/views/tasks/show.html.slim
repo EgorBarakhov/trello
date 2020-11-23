@@ -1,0 +1,17 @@
+p#notice
+  = notice
+p
+  strong
+    | Title:
+  = @task.title
+p
+  strong
+    | Description:
+  = @task.description
+p
+  strong
+    | Tasklist:
+  = @task.tasklist_id
+= link_to 'Edit', edit_tasklist_task_path(@tasklist, @task)
+|  | 
+= link_to 'Back', tasklist_tasks_path(@tasklist)

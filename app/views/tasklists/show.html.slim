@@ -1,0 +1,17 @@
+p#notice
+  = notice
+p
+  strong
+    | Title:
+  = @tasklist.title
+h2
+  | Tasks
+- for task in @tasklist.tasks
+  ul
+    li
+      = task.description
+= link_to 'Edit', edit_tasklist_path(@tasklist)
+|  | 
+= link_to 'Add Post', tasklist_tasks_path(@tasklist)
+|  | 
+= link_to 'Back', tasklists_path

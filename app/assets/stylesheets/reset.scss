@@ -1,0 +1,48 @@
+body {
+  background-color: white;
+  color: #333;
+  margin: 0;
+}
+
+body, p, ol, ul, td {
+
+  font-size: 13px;
+  line-height: 18px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a {
+  color: black;
+
+  &:hover {
+    color: lighten(black, 20%);
+    text-decoration: none;
+  }
+
+}
+
+th {
+  padding-bottom: 5px;
+}
+
+td {
+  padding: 0 5px 7px;
+}
+
+div.field,
+div.actions {
+  margin-bottom: 10px;
+}
+
+#notice {
+  color: green;
+}
+
+label {
+  display: block;
+}
