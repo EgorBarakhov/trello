@@ -2,6 +2,8 @@ class TasksController < ApplicationController
   before_action :find_tasklist
   before_action :set_task, only: %i[show edit update destroy]
 
+
+  layout 'tasks'
   # GET /tasks
   # GET /tasks.json
   def index

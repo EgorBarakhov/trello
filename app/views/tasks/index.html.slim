@@ -1,31 +1,21 @@
-p#notice
-  = notice
-h1
-  | Tasks
-table
-  thead
-    tr
-      th
-        | Title
-      th
-        | Description
-      th
-        | Tasklist
-      th[colspan="3"]
-  tbody
-    - @tasks.each do |task|
-      tr
-        td
-          = task.title
-        td
-          = task.description
-        td
-          = task.tasklist.title
-        td
-          = link_to 'Show Tasklist', [@tasklist]
-        td
-          = link_to 'Edit Task', edit_tasklist_task_path(@tasklist, task)
-        td
-          = link_to 'Destroy Task', [@tasklist, task], method: :delete, data: { confirm: 'Are you sure?' }
-br
-= link_to 'New Task', new_tasklist_task_path(@tasklist)
+.message.message--notice = notice
+
+h1 Tasks
+
+ul.tasks-list
+  - @tasks.each do |task|
+    li.tasks-list__item
+      .tasks-list__header
+        = link_to task.title, @task
+      .tasks-list__description
+        = task.description
+      .tasks-list__tasklist
+        = link_to task.tasklist.title, [@tasklist]
+      .tasks-list__comments
+      .tasks-list__icons
+        = link_to edit_tasklist_task_path(@tasklist, task), class: 'tasks-list__icon' do
+          = image_tag 'edit.svg'
+        = link_to [@tasklist, task], method: :delete, data: { confirm: 'Are you sure?' }, class: 'tasks-list__icon' do
+          = image_tag 'destroy.svg'
+
+= link_to 'New Task', new_tasklist_task_path(@tasklist), class: 'button'
