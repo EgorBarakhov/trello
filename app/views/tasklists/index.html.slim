@@ -1,17 +1,21 @@
-.message.message--notice = notice
+.js-tasklists
+  .message.message--notice = notice
 
-h1 Tasklists
+  h1
+    ' Tasklists
+    span.sorter.js-sort-asc Sort by title ascendant
+    span.sorter.js-sort-desc.hidden Sort by title descendant
 
-ul.tasklists-list
-  - @tasklists.each do |tasklist|
-    li.tasklists-list__item
-      .tasklists-list__header
-        = link_to tasklist.title, tasklist
-      .tasklists-list__comments
-      .tasklists-list__icons
-        = link_to edit_tasklist_path(tasklist), class: 'tasklists-list__icon' do
-          = image_tag 'edit.svg'
-        = link_to tasklist, method: :delete, data: { confirm: 'Are you sure?' }, class: 'tasklists-list__icon' do
-          = image_tag 'destroy.svg'
+  ul.tasklists-list.js-tasklists-list
+    - @tasklists.each do |tasklist|
+      li.tasklists-list__item.js-item data-tasklist=tasklist.to_json
+        .tasklists-list__header
+          = link_to tasklist.title, tasklist
+        .tasklists-list__comments
+        .tasklists-list__icons
+          = link_to edit_tasklist_path(tasklist), class: 'tasklists-list__icon' do
+            = image_tag 'edit.svg'
+          = link_to tasklist, method: :delete, data: { confirm: 'Are you sure?' }, class: 'tasklists-list__icon' do
+            = image_tag 'destroy.svg'
 
-= link_to 'New Tasklist', new_tasklist_path, class: 'button'
+  = link_to 'New Tasklist', new_tasklist_path, class: 'button'

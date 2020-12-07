@@ -3,14 +3,14 @@
 
 h2
   | Tasklist
-  |  |
+    | |
   = @tasklist.title
 - for task in @tasklist.tasks
   ul.tasks-list
     li.tasks-list__item
       = task.description
 = link_to 'Edit Tasklist', edit_tasklist_path(@tasklist)
-|  | 
+| |
 = link_to 'Manage Tasks', tasklist_tasks_path(@tasklist)
-|  | 
+| |
 = link_to 'Back', tasklists_path

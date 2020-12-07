@@ -2,7 +2,7 @@
   - if tasklist.errors.any?
     #error_explanation
       h2
-        = pluralize(tasklist.errors.count, "error")
+        = pluralize(tasklist.errors.count, 'error')
         |  prohibited this tasklist from being saved:
       ul
         - tasklist.errors.full_messages.each do |message|
